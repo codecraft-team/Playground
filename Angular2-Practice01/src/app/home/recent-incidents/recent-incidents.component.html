@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Recent Incidents</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" *ngFor="let incident of recentIncidents">
+      <h3><a routerLink="./incidents/{{ incident.id }}" routerLinkActive="active">{{ incident.id }}</a> {{ incident.title }}</h3>
+      <div>
+        <small>{{ incident.status }} {{ incident.assignedTo }}</small>
+      </div>
+    </div>
+  </div>
+</div>
