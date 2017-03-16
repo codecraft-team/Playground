@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>TypeScript HTML App</title>
+  <script src="jspm_packages/system.js"></script>
+  <script src="system.config.js"></script>
+  <script>
+    var zonePromise = System.import('zone.js');
+    var reflectPromise = System.import('reflect-metadata');
+ 
+    Promise.all([zonePromise, reflectPromise])
+      .then(function() {
+        return System.import('app/main').catch(function(err) { console.error(err); });
+      });
+  </script>
+</head>
+<body>
+  <h1>Angular TreeView</h1>
+  <my-app>Loading...</my-app>
+</body>
+</html>
