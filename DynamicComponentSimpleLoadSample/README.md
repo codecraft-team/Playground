@@ -1,5 +1,7 @@
-# DynamicComponentLoadSample
+﻿# DynamicComponentLoadSample
 This sample shows how a Angular component can be shown in browser through ViewContainerRef. This is a dynamic methode to show Angular components in Dom with a reference variable.
+
+![LoadingSample](LoadingComponent.gif)
 
 ---
 
