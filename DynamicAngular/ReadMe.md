@@ -2,14 +2,14 @@
 
 This is a serie of examples to collecting experience in what it is necessary to load Angular Modules absolutely dynamically.
 
-The samples are created in following order and with the described intention to get a idea of a small part of the whole cake :-)
+The samples are created in following order and with the described intention to get an idea of a small part of the whole cake :-)
 
 1. DynamicComponentSimpleLoadSample
   * Loading a Angular Component with ViewContainerRef  
   * Webpack Environment
-  * Result - Basic function how to add in DOM something in Angular
+  * Result - Basic function how to add a component in the DOM with Angular
 2. DynamicNgComponentOutletSample
-  * Excursion to Angular 4 new function NgComponentOutlet to load a componet  
+  * Excursion to Angular 4 new function NgComponentOutlet to load a componet dynamically 
   * Webpack Environment
 3. DynamicComponentSimpleCompilerSample
   * Loading a whole Angular Module (NgModule) with the Angular Compiler  
