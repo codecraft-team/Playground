@@ -1,8 +1,8 @@
 # Dynamic loading Modules in Angular
 
-This is a serie of collecting expirence how it is possible to load Angular Modules absolutelly dynamicly.
+This is a serie of examples to collecting experience in what it is necessary to load Angular Modules absolutely dynamically.
 
-The current samples are build in following order and with the described intension to get a idea of a small part of the whole cake :-)
+The samples are created in following order and with the described intention to get a idea of a small part of the whole cake :-)
 
 1. DynamicComponentSimpleLoadSample
   * Loading a Angular Component with ViewContainerRef  
