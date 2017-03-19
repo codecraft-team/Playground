@@ -18,5 +18,7 @@ The samples are created in following order and with the described intention to g
 4. SystemJsLoaderWithSystemJsSample
   * Loading a NgModule from a external Javascript file (without references in AppModule class)  
   * switching to SystemJs environment (with Webpack it was not possible to load a file without creating a chunk file (using through Angular-Cli))  
-  * Result - With the Angular Service function SystemJsNgModuleLoader it is possible to load a javascript file and to get the Module inside as a NgModuleFactory. 
+  * Result - With the Angular Service function SystemJsNgModuleLoader it is possible to load a javascript file and to get the Module inside as a NgModuleFactory.
+5. SystemJsLoaderLoadAngularModuleSample
+  * Loading a Angular module from any javascript an show it in view. A combination of the result from sample 3 and 4  
   
