@@ -4,11 +4,15 @@ import { TreeNode } from "./treeNode";
 @Component({
   moduleId: module.id,
   selector: "my-app",
-  template: `<treenode [nodes]="nodes"></treenode>`
+  template: `
+  <div>Selected node: {{selectedNode?.name}}</div>
+  <br/>
+  <treenode [nodes]="nodes" (selected)="select($event)"></treenode>`
 })
 export  class  AppComponent implements OnInit {
   nodes: TreeNode[];
-  
+  selectedNode: TreeNode;
+
   ngOnInit(): void {
     let node1 = new TreeNode("1");
     node1.nodes.push(new TreeNode("1.1"));
@@ -27,5 +31,9 @@ export  class  AppComponent implements OnInit {
     this.nodes.push(node1);
     this.nodes.push(node2);
     this.nodes.push(new TreeNode("3"));
+  }
+
+  select(node: TreeNode) {
+    this.selectedNode = node;
   }
 };

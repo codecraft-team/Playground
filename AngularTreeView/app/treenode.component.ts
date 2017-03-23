@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { TreeNode } from "./treeNode";
 
 @Component({
@@ -9,4 +9,9 @@ import { TreeNode } from "./treeNode";
 })
 export  class TreeNodeComponent {
   @Input() nodes: TreeNode[];
+  @Output() selected = new EventEmitter<TreeNode>();
+
+  select(node) {
+    this.selected.next(node);
+  }
 };
