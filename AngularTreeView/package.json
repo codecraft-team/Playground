@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "jspm install",
+    "start": "http-server -c0 -o"
   },
   "author": "",
   "license": "ISC",
@@ -17,33 +18,33 @@
   "jspm": {
     "configFile": "system.config.js",
     "dependencies": {
-      "@angular/common": "npm:@angular/common@^2.4.9",
-      "@angular/compiler": "npm:@angular/compiler@^2.4.9",
-      "@angular/core": "npm:@angular/core@^2.4.9",
-      "@angular/forms": "npm:@angular/forms@^2.4.9",
-      "@angular/http": "npm:@angular/http@^2.4.9",
-      "@angular/platform-browser": "npm:@angular/platform-browser@^2.4.9",
-      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.4.9",
-      "@angular/router": "npm:@angular/router@^3.4.9",
-      "@angular/upgrade": "npm:@angular/upgrade@^2.4.9",
+      "@angular/common": "npm:@angular/common@^4.0.0",
+      "@angular/compiler": "npm:@angular/compiler@^4.0.0",
+      "@angular/core": "npm:@angular/core@^4.0.0",
+      "@angular/forms": "npm:@angular/forms@^4.0.0",
+      "@angular/http": "npm:@angular/http@^4.0.0",
+      "@angular/platform-browser": "npm:@angular/platform-browser@^4.0.0",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^4.0.0",
+      "@angular/router": "npm:@angular/router@^4.0.0",
+      "@angular/upgrade": "npm:@angular/upgrade@^4.0.0",
       "reflect-metadata": "npm:reflect-metadata@^0.1.10",
       "rxjs": "npm:rxjs@^5.2.0",
-      "zone.js": "npm:zone.js@^0.8.1"
+      "zone.js": "npm:zone.js@^0.8.5"
     },
     "devDependencies": {}
   },
   "dependencies": {
-    "@angular/common": "^2.4.9",
-    "@angular/compiler": "^2.4.9",
-    "@angular/core": "^2.4.9",
-    "@angular/forms": "^2.4.9",
-    "@angular/http": "^2.4.9",
-    "@angular/platform-browser": "^2.4.9",
-    "@angular/platform-browser-dynamic": "^2.4.9",
-    "@angular/router": "^3.4.9",
-    "@angular/upgrade": "^2.4.9",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "@angular/upgrade": "^4.0.0",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.2.0",
-    "zone.js": "^0.8.1"
+    "zone.js": "^0.8.5"
   }
 }
