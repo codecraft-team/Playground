@@ -1,0 +1,16 @@
+{
+  "name": "staticfileserverexpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js 8080"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "consolidate": "^0.14.5",
+    "express": "^4.15.2",
+    "mustache": "^2.3.0"
+  }
+}
