@@ -1,5 +1,5 @@
 <ul *ngIf="nodes.length > 0">
-  <li *ngFor="let node of nodes" [class.icon-expanded]="node.expanded" [class.icon-collapsed]="!node.expanded"  [class.icon-leaf]="node.nodes.length == 0" (click)="node.expand(); $event.stopPropagation();">
+  <li id="{{node.name}}" *ngFor="let node of nodes" [class.icon-expanded]="node.expanded" [class.icon-collapsed]="!node.expanded"  [class.icon-leaf]="node.nodes.length == 0" (click)="node.expand(); $event.stopPropagation();">
     <span (click)="select(node); $event.stopPropagation();">{{node.name}}</span>
 
     <treenode *ngIf="node.expanded" [nodes]="node.nodes" (selected)="select($event)"></treenode>
