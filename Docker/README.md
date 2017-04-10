@@ -10,6 +10,7 @@ To create the image, navigate to the sinopia folder and start build
 ```
 
 - -t name of the docker image
+- do not forgett the dot at the end of line
 
 To start a new registry, run following:
 
