@@ -19,10 +19,31 @@ The browser should show
 ```cs
 app.UseOwin(pipeline => pipeline(next => context => {
     foreach(string key in context.Keys){
-        Console.WriteLine($"${key}: ${context[key]}");
+        Console.WriteLine($"{key}: {context[key]}");
     }
     return next(context);
 }));
 ```
 7. Execute and navigate to the api (see step 4 and 5)
 8. Inspect the console output which should contain the owin keys and their content
+
+Alternative:  
+Instead of using the UseOwin extension method on can use OwinEnvironment/OwinFeatureCollection.
+The sample shows how to access owin values using OwinEnvironment or OwinFeatureCollection.
+```cs
+app.Use((context, next) => {
+    OwinEnvironment environment = new OwinEnvironment(context);
+    IDictionary<string, string[]> headers = (IDictionary<string, string[]>)environment.Single(item => item.Key == "owin.RequestHeaders").Value;
+    
+    return next();
+});
+
+app.Use((context, next) => {
+    OwinEnvironment environment = new OwinEnvironment(context);
+    OwinFeatureCollection features = new OwinFeatureCollection(environment);
+    IDictionary<string, string[]> headers = (IDictionary<string, string[]> )features.Environment["owin.RequestHeaders"];
+    
+    return next();
+});
+
+```

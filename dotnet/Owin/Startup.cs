@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Owin;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -39,10 +41,26 @@ namespace owin
 
             app.UseOwin(pipeline => pipeline(next => context => {
                 foreach(string key in context.Keys){
-                    Console.WriteLine($"${key}: ${context[key]}");
+                    Console.WriteLine($"{key}: {context[key]}");
                 }
                 return next(context);
             }));
+
+            // alternative
+            app.Use((context, next) => {
+                OwinEnvironment environment = new OwinEnvironment(context);
+                IDictionary<string, string[]> headers = (IDictionary<string, string[]>)environment.Single(item => item.Key == "owin.RequestHeaders").Value;
+                
+                return next();
+            });
+
+            app.Use((context, next) => {
+                OwinEnvironment environment = new OwinEnvironment(context);
+                OwinFeatureCollection features = new OwinFeatureCollection(environment);
+                IDictionary<string, string[]> headers = (IDictionary<string, string[]> )features.Environment["owin.RequestHeaders"];
+                
+                return next();
+            });
 
             app.UseMvc();
         }
