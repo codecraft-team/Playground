@@ -5,12 +5,13 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Owin;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Http.Features.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace owin
+namespace FeatureCollections
 {
     public class Startup
     {
@@ -38,28 +39,31 @@ namespace owin
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+           
+            app.Use(async (context, next) =>
+            {
+                Guid correlationId = Guid.NewGuid();
 
-            app.UseOwin(pipeline => pipeline(next => context => {
-                foreach(string key in context.Keys){
-                    Console.WriteLine($"{key}: {context[key]}");
-                }
-                return next(context);
-            }));
-
-            // alternative
-            app.Use((context, next) => {
-                OwinEnvironment environment = new OwinEnvironment(context);
-                IDictionary<string, string[]> headers = (IDictionary<string, string[]>)environment.Single(item => item.Key == "owin.RequestHeaders").Value;
+                Console.WriteLine($"Register feature with correlation id: {correlationId}");
                 
-                return next();
+                IFeatureCollection features = context.Features;
+                features.Set<CorrelationFeature>(new CorrelationFeature(correlationId));
+
+                await next();
             });
 
-            app.Use((context, next) => {
-                OwinEnvironment environment = new OwinEnvironment(context);
-                OwinFeatureCollection features = new OwinFeatureCollection(environment);
-                IDictionary<string, string[]> headers = (IDictionary<string, string[]> )features.Environment["owin.RequestHeaders"];
+            app.Use(async (context, next) =>
+            {
+                IFeatureCollection features = context.Features;
+
+                CorrelationFeature correlatinFeature = features.Get<CorrelationFeature>();
                 
-                return next();
+                Console.WriteLine($"CorrelationId: {correlatinFeature.Id}");
+
+                IServiceProvidersFeature serviceProviderFeature = features.Get<IServiceProvidersFeature>();
+                IServiceProvider service = serviceProviderFeature.RequestServices;
+                
+                await next();
             });
 
             app.UseMvc();
