@@ -24,10 +24,11 @@ Use Chrome (see below) or node client for communication.
 
 After them the connection to the server will be opened and the client will be send in a intervall messages to the server. The server respons on the message.
 
+In this example the framework 'ws' for node.js (npm install ws) is used. Other frameworks are socket.io or SockJS.
 
   ## Chrome as Web socket client     
 
-  With Chrome it is possible (without a prepared script in the html site) to communicate through web sockets.
+  With Chrome it is possible (without a prepared script in the html site) to communicate through web sockets (Chrome implements the WebSocket API Specification).
 
   First call the server host in chrome "http://localhost:5000".
   Open the console in the developer tools.
