@@ -16,7 +16,12 @@ jspm_packages
 .classpath
 .c9/
 *.launch
-.settings/
+.settings
+_NCrunch_*
+*.ncrunchsolution
+*.ncrunchproject
+*.user
+.vs
 
 # IDE - VSCode
 .vscode/*
