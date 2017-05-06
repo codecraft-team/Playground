@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "ConsoleApplication": {
+      "commandName": "Project",
+      "commandLineArgs": "--cmdOption1 cmdValue1 /option1 cmd1",
+      "environmentVariables": {
+        "option1": "env1",
+        "EnvOption1": "EnvValue1"
+      }
+    }
+  }
+}
