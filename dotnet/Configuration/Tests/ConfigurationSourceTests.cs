@@ -32,6 +32,29 @@ namespace Tests {
     }
 
     [TestMethod]
+    public void TestOptionalJsonSource() {
+      IConfigurationRoot configuration = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .AddJsonFile("appsettings.development.json", optional:true)
+        .Build();
+
+      string option1 = configuration["option1"];
+
+      Assert.AreEqual("value1", option1);
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(FileNotFoundException))]
+    public void TestRequiredJsonSource() {
+      IConfigurationRoot configuration = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .AddJsonFile("appsettings.development.json")
+        .Build();
+    }
+
+    [TestMethod]
     public void TestXmlSource() {
       IConfigurationRoot configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
