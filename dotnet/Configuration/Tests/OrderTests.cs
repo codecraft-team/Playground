@@ -39,10 +39,12 @@ namespace Tests {
 
     [TestMethod]
     public void TestProductionOverridenEvenUsingDifferentSources() {
+      string environment = "production";
+
       IConfigurationRoot configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.production.json")
         .AddJsonFile("appsettings.json")
+        .AddJsonFile($"appsettings.{environment}.json")
         .AddXmlFile("appsettings.xml")
         .Build();
 

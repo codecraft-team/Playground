@@ -42,5 +42,22 @@ namespace Tests {
 
       Assert.AreEqual("Setting1", options.Value.Setting);
     }
+
+    [TestMethod]
+    public void TestCustomConfiguration() {
+      IConfigurationRoot configuration = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .Build();
+
+      IServiceProvider serviceProvider = new ServiceCollection()
+        .AddOptions()
+        .Configure<SecondLevelSection>(option => option.Setting = "CustomSetting")
+        .BuildServiceProvider();
+
+      IOptions<SecondLevelSection> options = serviceProvider.GetService<IOptions<SecondLevelSection>>();
+
+      Assert.AreEqual("CustomSetting", options.Value.Setting);
+    }
   }
 }

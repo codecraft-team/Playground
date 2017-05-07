@@ -7,6 +7,19 @@ namespace Tests {
   [TestClass]
   public class ConfigurationSourceTests {
     [TestMethod]
+    public void TestInMemorySource() {
+      IConfiguration configuration = new ConfigurationBuilder()
+        .AddInMemoryCollection()
+        .Build();
+
+      configuration["option1"] = "value1";
+
+      string option1 = configuration["option1"];
+
+      Assert.AreEqual("value1", option1);
+    }
+
+    [TestMethod]
     public void TestJsonSource() {
       IConfigurationRoot configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
