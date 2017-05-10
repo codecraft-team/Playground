@@ -1,0 +1,19 @@
+{
+  "name": "vscode-debugging",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --ui tdd"
+  },
+  "private": true,
+  "author": "Joachim Jauß",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0",
+    "typescript": "^2.3.2"
+  }
+}
