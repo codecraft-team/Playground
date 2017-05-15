@@ -1,0 +1,7 @@
+
+## ignore generated files from src folder
+src/**/*.js
+src/**/*.js.map
+
+#ignore distibution folder
+dist/**/*.*

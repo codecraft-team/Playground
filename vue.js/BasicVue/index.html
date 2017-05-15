@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="jspm_packages/system.js"></script>
+  <script src="systemjs.config.js"></script>
+  <script>
+    System.import("src/app").then(function (module) {
+      var app = new module.App();
+      app.start();
+    })
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Basic vue.js application</h1>
+    <p>
+      Demonstrates some practices with vue components
+    </p>
+  </header>
+</body>
+
+</html>
