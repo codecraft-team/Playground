@@ -6,16 +6,28 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-  packages: {
 
+  packages: {
+    "src": {
+      defaultJSExtensions: true,
+      meta: {
+        '*.html': {
+          loader: 'text'
+        }
+      },
+    },
     "vue": {
       "main": "dist/vue.common.js"
     }
   },
 
+
+
+
   map: {
     "[object Object]": "npm:babel-core@5.8.38",
     "[object Object]-runtime": "npm:babel-runtime@5.8.38",
+    "text": "github:systemjs/plugin-text@0.0.9",
     "vue": "npm:vue@2.3.3",
     "vue-class-component": "npm:vue-class-component@5.0.1",
     "github:jspm/nodelibs-assert@0.1.0": {

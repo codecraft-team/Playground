@@ -1,0 +1,22 @@
+<app>
+  <header slot="header">
+    <h1>Basic vue.js application</h1>
+    <p>
+      Demonstrates some practices with vue components
+    </p>
+  </header>
+  <content>
+    <div>
+      <button @click="show('poco')">Show POCO-Vue</button>
+      <button @click="show('vueClass')">Show vueClass-Vue</button>
+    </div>
+    <div>Parental Sample Data:
+      <span style="color:blueviolet; font-weight: 700">{{sampleDataFromParent}}</span>
+    </div>
+    <component :is="currentView" :parentData="sampleDataFromParent" style="height:400px; border:1px solid grey; margin:5px; padding: 3px;">test</component>
+  </content>
+  <footer slot="footer">
+    <hr/>
+    <div>This is the application footer</div>
+  </footer>
+</app>

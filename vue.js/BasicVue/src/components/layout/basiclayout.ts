@@ -5,13 +5,9 @@ import Component from 'vue-class-component'
   template: `<div>
     <header>
     <slot name="header">
-      <h1>Basic vue.js application</h1>
-      <p>
-        Demonstrates some practices with vue components
-      </p>
       </slot>
     </header>
-    <div>Some content</div>
+    <slot>Sample content</slot>
     <footer><slot name="footer"></slot></footer>
   </div>`
 })

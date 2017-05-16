@@ -1,12 +1,11 @@
 import * as Vue from 'vue';
-import { BasicLayout } from './components/index';
-
+import { AppComponent } from './app.component';
 export class App {
-  start(target: string | Element) {
+  start(target: string | Element): void {
     console.log("Application was started");
     let vue = new Vue({
       el: target,
-      render: createElement => createElement(BasicLayout)
+      render: createElement => createElement(AppComponent)
     });
   }
 }

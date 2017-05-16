@@ -25,6 +25,7 @@
   "jspm": {
     "configFile": "systemjs.config.js",
     "dependencies": {
+      "text": "github:systemjs/plugin-text@^0.0.9",
       "vue": "npm:vue@^2.3.3",
       "vue-class-component": "npm:vue-class-component@^5.0.1"
     },
