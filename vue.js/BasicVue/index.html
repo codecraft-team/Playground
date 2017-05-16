@@ -7,18 +7,15 @@
   <script>
     System.import("src/app").then(function (module) {
       var app = new module.App();
-      app.start();
+      app.start('#app');
     })
   </script>
 </head>
 
 <body>
-  <header>
-    <h1>Basic vue.js application</h1>
-    <p>
-      Demonstrates some practices with vue components
-    </p>
-  </header>
+  <div id="app">
+
+  </div>
 </body>
 
 </html>

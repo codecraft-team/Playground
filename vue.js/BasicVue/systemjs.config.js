@@ -6,6 +6,12 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+  packages: {
+
+    "vue": {
+      "main": "dist/vue.common.js"
+    }
+  },
 
   map: {
     "[object Object]": "npm:babel-core@5.8.38",
