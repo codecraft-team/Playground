@@ -16,6 +16,7 @@ let components = Object.assign({
   'empty': EmptyComponent
 }, samples);
 
+let sampleKeys = Object.keys(samples);
 
 @Component({
   template: HtmlTemplate,
@@ -23,6 +24,8 @@ let components = Object.assign({
 })
 export class AppComponent extends Vue {
   currentView: string = 'empty';
+  sampleComponents: string[] = sampleKeys;
+
   sampleDataFromParent: string = "Parent Data"
 
   show(view: string) {

@@ -7,8 +7,7 @@
   </header>
   <content>
     <div>
-      <button @click="show('poco')">Show POCO-Vue</button>
-      <button @click="show('vueClass')">Show vueClass-Vue</button>
+      <button v-for="component in sampleComponents" @click="show(component)" style="margin:3px;">Show {{component}}-Vue</button>
     </div>
     <div>Parental Sample Data:
       <span style="color:blueviolet; font-weight: 700">{{sampleDataFromParent}}</span>
