@@ -3,5 +3,9 @@
 src/**/*.js
 src/**/*.js.map
 
+## ignore generated files from test folder
+test/**/*.js
+test/**/*.js.map
+
 #ignore distibution folder
 dist/**/*.*

@@ -7,7 +7,7 @@
     "serve": "lite-server",
     "build": "tsc",
     "build:watch": "tsc -w",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "concurrently": "concurrently \"npm run build:watch\" \"npm run serve\" ",
     "start": "npm run concurrently"
   },
@@ -15,11 +15,13 @@
   "author": "Joachim Jauß",
   "license": "ISC",
   "devDependencies": {
+    "@types/sinon": "^2.2.2",
     "chai": "^3.5.0",
     "concurrently": "^3.4.0",
     "jspm": "^0.16.53",
     "lite-server": "^2.3.0",
     "mocha": "^3.4.1",
+    "sinon": "^2.2.0",
     "typescript": "^2.3.2"
   },
   "jspm": {
