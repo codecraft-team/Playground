@@ -22,8 +22,7 @@ export class VueClassComponent extends Vue {
   counter: number = 0;
   message: string = '';
 
-  onClick(event: Event) {
-    console.log("button clicked");
+  onClick() {
     this.counter++;
     this.message += "<p>button was clicked</p>";
   };
