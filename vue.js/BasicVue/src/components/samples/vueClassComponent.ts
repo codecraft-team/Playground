@@ -19,9 +19,14 @@ import Component from 'vue-class-component';
   },
 })
 export class VueClassComponent extends Vue {
+  /** prop's */
+  parentData: string
+
+  /** data's */
   counter: number = 0;
   message: string = '';
 
+  /** methods */
   onClick() {
     this.counter++;
     this.message += "<p>button was clicked</p>";

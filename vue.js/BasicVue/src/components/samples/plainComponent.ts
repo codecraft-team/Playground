@@ -36,4 +36,4 @@ let options: any = {
   }
 }
 
-export let PocoComponent = Vue.component('poco', options);
+export let PlainComponent = Vue.component('poco', options);

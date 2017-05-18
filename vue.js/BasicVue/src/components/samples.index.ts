@@ -1,9 +1,9 @@
-import { PocoComponent } from './samples/pocoComponent';
+import { PlainComponent } from './samples/plainComponent';
 import { VueClassComponent } from './samples/vueClassComponent';
 import { VuePropertyComponent } from './samples/vuePropertyDecoratedComponent';
 
 export let samples = {
-  'poco': PocoComponent,
+  'plain': PlainComponent,
   'vueClass': VueClassComponent,
   'vueProperty-Class': VuePropertyComponent
 }

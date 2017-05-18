@@ -4,7 +4,7 @@ import * as Vue from 'vue'
 
 import { VuePropertyComponent as Component } from '../../../src/components/samples/vuePropertyDecoratedComponent';
 
-suite("VueClass Component", () => {
+suite("VuePropertyDecorated Component", () => {
   let sandbox: sinon.SinonSandbox;
   let errorStub: sinon.SinonStub;
 

@@ -39,13 +39,13 @@ suite("VueClass Component", () => {
 
     test("validates parentData as required", () => {
       let vm = mount(Component, {});
-      assert.isUndefined(vm.$props.parentData);
+      assert.isUndefined(vm.parentData);
       assert.isTrue(errorStub.calledWithMatch('Missing required prop: "parentData"'));
     })
 
     test("initializes parentData", () => {
       let vm = mount(Component, { parentData: "Sample Data" });
-      assert.equal(vm.$props.parentData, "Sample Data");
+      assert.equal(vm.parentData, "Sample Data");
     })
   });
 

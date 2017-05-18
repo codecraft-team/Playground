@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import * as sinon from 'sinon';
 import * as Vue from 'vue'
 
-import { PocoComponent as Component } from '../../../src/components/samples/pocoComponent';
+import { PlainComponent as Component } from '../../../src/components/samples/plainComponent';
 
 suite("Poco Component", () => {
   let sandbox: sinon.SinonSandbox;
