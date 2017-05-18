@@ -30,7 +30,6 @@ let options: any = {
   },
   methods: {
     onClick: function (this: ComponentOptions, event: Event) {
-      console.log("button clicked");
       this.counter++;
       this.message += "<p>button was clicked</p>";
     }
