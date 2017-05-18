@@ -2,9 +2,9 @@ import { assert } from 'chai';
 import * as sinon from 'sinon';
 import * as Vue from 'vue'
 
-import { PocoComponent as Component } from '../../../src/components/samples/pocoComponent';
+import { VuePropertyComponent as Component } from '../../../src/components/samples/vuePropertyDecoratedComponent';
 
-suite("Poco Component", () => {
+suite("VueClass Component", () => {
   let sandbox: sinon.SinonSandbox;
   let errorStub: sinon.SinonStub;
 
@@ -15,7 +15,7 @@ suite("Poco Component", () => {
     message: string
   }
 
-  function mount<T extends Vue>(component: typeof Vue, data: any): T {
+  function mount<T extends Vue>(component: new () => T, data: any): T {
     let Ctor = Vue.extend(component);
     return new Ctor({ propsData: data }).$mount() as T;
   }
@@ -33,18 +33,18 @@ suite("Poco Component", () => {
   suite("mount", () => {
 
     test("derives from Vue", () => {
-      let vm = mount<IComponent>(Component, {});
+      let vm = mount(Component, {});
       assert.instanceOf(vm, Vue);
     })
 
     test("validates parentData as required", () => {
-      let vm = mount<IComponent>(Component, {});
+      let vm = mount(Component, {});
       assert.isUndefined(vm.parentData);
       assert.isTrue(errorStub.calledWithMatch('Missing required prop: "parentData"'));
     })
 
     test("initializes parentData", () => {
-      let vm = mount<IComponent>(Component, { parentData: "Sample Data" });
+      let vm = mount(Component, { parentData: "Sample Data" });
       assert.equal(vm.parentData, "Sample Data");
     })
   });
@@ -52,7 +52,7 @@ suite("Poco Component", () => {
   suite("onClick ", () => {
 
     test("increment counter", () => {
-      let vm = mount<IComponent>(Component, { parentData: "Sample Data" });
+      let vm = mount(Component, { parentData: "Sample Data" });
       assert.equal(vm.counter, 0);
       vm.onClick();
       assert.equal(vm.counter, 1);
@@ -60,7 +60,7 @@ suite("Poco Component", () => {
     })
 
     test("outputs message", () => {
-      let vm = mount<IComponent>(Component, { parentData: "Sample Data" });
+      let vm = mount(Component, { parentData: "Sample Data" });
       vm.onClick();
       assert.equal(vm.message, "<p>button was clicked</p>");
     })

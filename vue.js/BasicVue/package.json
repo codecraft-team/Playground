@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "install": "jspm install",
     "serve": "lite-server",
     "build": "tsc",
     "build:watch": "tsc -w",
@@ -29,7 +30,8 @@
     "dependencies": {
       "text": "github:systemjs/plugin-text@^0.0.9",
       "vue": "npm:vue@^2.3.3",
-      "vue-class-component": "npm:vue-class-component@^5.0.1"
+      "vue-class-component": "npm:vue-class-component@^5.0.1",
+      "vue-property-decorator": "npm:vue-property-decorator@^5.0.1"
     },
     "devDependencies": {
       "[object Object]": "npm:babel-core@^5.8.24",

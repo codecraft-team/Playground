@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import * as sinon from 'sinon';
 import * as Vue from 'vue'
 
-import { VueClassComponent } from '../../../src/components/samples/vueClassComponent';
+import { VueClassComponent as Component } from '../../../src/components/samples/vueClassComponent';
 
 suite("VueClass Component", () => {
   let sandbox: sinon.SinonSandbox;
@@ -33,18 +33,18 @@ suite("VueClass Component", () => {
   suite("mount", () => {
 
     test("derives from Vue", () => {
-      let vm = mount(VueClassComponent, {});
+      let vm = mount(Component, {});
       assert.instanceOf(vm, Vue);
     })
 
     test("validates parentData as required", () => {
-      let vm = mount(VueClassComponent, {});
+      let vm = mount(Component, {});
       assert.isUndefined(vm.$props.parentData);
       assert.isTrue(errorStub.calledWithMatch('Missing required prop: "parentData"'));
     })
 
     test("initializes parentData", () => {
-      let vm = mount(VueClassComponent, { parentData: "Sample Data" });
+      let vm = mount(Component, { parentData: "Sample Data" });
       assert.equal(vm.$props.parentData, "Sample Data");
     })
   });
@@ -52,7 +52,7 @@ suite("VueClass Component", () => {
   suite("onClick ", () => {
 
     test("increment counter", () => {
-      let vm = mount(VueClassComponent, { parentData: "Sample Data" });
+      let vm = mount(Component, { parentData: "Sample Data" });
       assert.equal(vm.counter, 0);
       vm.onClick();
       assert.equal(vm.counter, 1);
@@ -60,7 +60,7 @@ suite("VueClass Component", () => {
     })
 
     test("outputs message", () => {
-      let vm = mount(VueClassComponent, { parentData: "Sample Data" });
+      let vm = mount(Component, { parentData: "Sample Data" });
       vm.onClick();
       assert.equal(vm.message, "<p>button was clicked</p>");
     })
