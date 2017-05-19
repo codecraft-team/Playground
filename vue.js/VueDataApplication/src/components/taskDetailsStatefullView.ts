@@ -18,24 +18,26 @@ export class TaskDetailsStatefullViewComponent extends Vue {
   name: string;
   taskData: Task | null = null;
 
+  /** Livecycle Hooks */
   created() {
+    // during creating watchers on props should be registered
+    // to react on external changes
     this.$watch("task", this.watchTask);
   }
 
   mounted() {
+    // during mount of the component the props-values should be copied to local state
     console.log(`${this.$options.name} - state initialized and copied to local state`)
     this.taskData = this.copy(this.task!);
   }
 
-  private copy(task: Task): Task {
-    return <Task>JSON.parse(JSON.stringify(task));
-  }
-
+  /** watchers */
   watchTask() {
     console.log(`${this.$options.name} - state changed outside and copied to local state`);
     this.taskData = this.copy(this.task!);
   }
 
+  /** event handlers */
   refreshButtonClick() {
     this.taskData = this.copy(this.task!);
   }
@@ -43,9 +45,15 @@ export class TaskDetailsStatefullViewComponent extends Vue {
   newButtonClick() {
     this.taskData = new Task(null, "new task");
   }
+
   saveButtonClick() {
     if (this.taskData != null) {
       this.$emit("task:save", this.copy(this.taskData));
     }
   }
+
+  private copy<T>(value: T): T {
+    return <T>JSON.parse(JSON.stringify(value));
+  }
+
 }
