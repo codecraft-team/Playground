@@ -1,6 +1,7 @@
 import * as Vue from 'vue';
 import * as HtmlTemplate from './app.html';
 import { TaskDetailsViewComponent } from './components/taskDetailsView';
+import { TaskDetailsStatefullViewComponent } from './components/taskDetailsStatefullView';
 import { TaskController } from './model/tasks/index';
 
 export class App {
@@ -23,7 +24,8 @@ export class App {
         }
       },
       components: {
-        'task-details': TaskDetailsViewComponent
+        'task-details': TaskDetailsViewComponent,
+        'task-statefull-details': TaskDetailsStatefullViewComponent
       }
     });
   }

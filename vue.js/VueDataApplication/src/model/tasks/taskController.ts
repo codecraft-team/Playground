@@ -31,4 +31,25 @@ export class TaskController {
     }
     this.message = "Tasks are loaded";
   }
+
+  save(task: Task) {
+    let currentTask: Task = new Task(task.id, task.taskName);
+    let index = this.tasks.findIndex((t => t.id == currentTask.id));
+    if (index > -1) {
+      this.tasks[index].taskName = currentTask.taskName;
+      currentTask = this.tasks[index];
+    } else {
+      currentTask.id = this.newId();
+      this.tasks.push(currentTask);
+    }
+    this.currentTask = currentTask;
+  }
+
+  private newId(): number {
+    let clone = this.tasks.slice(0);
+    let sorted = clone.sort((a, b) => a.id! - b.id!);
+    let maxId: number = sorted.reverse()[0].id!
+    return 1 + maxId;
+  }
+
 }

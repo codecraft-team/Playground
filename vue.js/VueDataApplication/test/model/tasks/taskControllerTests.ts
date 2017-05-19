@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import * as mocha from 'mocha';
-import { TaskController } from '../../../src/model/tasks/index';
+import { Task, TaskController } from '../../../src/model/tasks/index';
 
 
 suite("TaskController", () => {
@@ -63,5 +63,27 @@ suite("TaskController", () => {
       assert.isNotNull(controller.currentTask)
       assert.equal(controller.currentTask && controller.currentTask.id, 1)
     })
+  })
+
+  suite("Save", () => {
+    let controller: TaskController;
+    setup(() => {
+      controller = new TaskController();
+      controller.init();
+    });
+
+    test("new Task will be pushed with new Id", () => {
+      controller.tasks.push(new Task(8, "existing Task"));
+      controller.tasks.push(new Task(6, "existing Task"));
+      controller.tasks.push(new Task(4, "existing Task"));
+      controller.tasks.push(new Task(10, "existing Task"));
+      let actualCount = controller.tasks.length;
+      let task = new Task(-1, "New Task");
+      controller.save(task);
+
+      assert.equal(controller.tasks.length, actualCount + 1);
+      assert.equal(controller.tasks[actualCount].id, 11);
+    })
+
   })
 });

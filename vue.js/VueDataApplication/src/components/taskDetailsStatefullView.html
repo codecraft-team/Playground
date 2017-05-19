@@ -1,0 +1,18 @@
+<div style="background-color: lightgreen; padding:10px;">
+  <p>
+    <h3>A simple <b>statefull</b> Task Details View Component</h3>
+  </p>
+  <template v-if="taskData !== null">
+    <p>{{taskData.id}}-{{taskData.taskName}}</p>
+    <p>
+      <label for="taskName">Name:</label>
+      <input id="taskName" v-model="taskData.taskName" type="text" />
+    </p>
+
+    <p>
+      <button @click="refreshButtonClick">Refresh</button>
+      <button @click="newButtonClick">New</button>
+      <button @click="saveButtonClick">Save</button>
+    </p>
+  </template>
+</div>
