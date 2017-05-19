@@ -42,6 +42,11 @@ suite("TaskController", () => {
       assert.equal(controller.message, "Tasks are loaded");
       assert.equal(controller.tasks.length, 3);
     });
+
+    test("selects the first task if current is null", () => {
+      controller.loadTasks();
+      assert.equal(controller.currentTask && controller.currentTask.id, 0);
+    });
   })
 
   suite("selectTask", () => {

@@ -1,7 +1,10 @@
 <div>
   <div>some application</div>
   <div>some bound state {{tasks.message}}</div>
-  <div><button @click="tasks.loadTasks()">Load Tasks</button></div>
+  <div style="padding:3px">
+    <button @click="tasks.loadTasks()">Load Tasks</button>
+    <button @click="tasks.init()">Reset</button>
+  </div>
   <div style="display:table; width: 600px;">
     <div style="display:table-row">
       <div style="display:table-cell; width:30%;">
@@ -17,6 +20,10 @@
           <hr/>
           <p>Load tasks and then click on an task in the list</p>
           <p v-if="tasks.currentTask!=null">{{tasks.currentTask.id}}-{{tasks.currentTask.taskName}}</p>
+          <hr/>
+          <div>
+            <task-details v-if="tasks.currentTask!=null" :task="tasks.currentTask"></task-details>
+          </div>
         </div>
       </div>
     </div>

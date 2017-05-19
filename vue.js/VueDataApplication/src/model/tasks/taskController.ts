@@ -10,6 +10,8 @@ export class TaskController {
 
   init(): void {
     this.message = "Initial task message"
+    this.tasks.splice(0, this.tasks.length)
+    this.currentTask = null;
   }
 
   selectTask(taskId: number) {
@@ -24,6 +26,9 @@ export class TaskController {
     let index = this.tasks.length;
     let tasks = this.taskService.loadTasks(index, 3);
     this.tasks.splice(this.tasks.length, 0, ...tasks);
+    if (this.currentTask === null) {
+      this.currentTask = this.tasks.slice(0, 1)[0];
+    }
     this.message = "Tasks are loaded";
   }
 }
