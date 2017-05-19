@@ -2,9 +2,23 @@
   <div>some application</div>
   <div>some bound state {{tasks.message}}</div>
   <div><button @click="tasks.loadTasks()">Load Tasks</button></div>
-  <div style="display:table;">
-    <div v-for="task in tasks.tasks" style="display:table-row;">
-      <div style="display:table-cell;">{{task.id}}-{{task.taskName}}</div>
+  <div style="display:table; width: 600px;">
+    <div style="display:table-row">
+      <div style="display:table-cell; width:30%;">
+        <div style=" display:table; ">
+          <div @click="tasks.selectTask(task.id)" v-for="task in tasks.tasks " style="display:table-row; ">
+            <div style="display:table-cell; ">{{task.id}}-{{task.taskName}}</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:table-cell">
+        <div style="border:1px solid grey; padding:5px;">
+          <p>Task Details:</p>
+          <hr/>
+          <p>Load tasks and then click on an task in the list</p>
+          <p v-if="tasks.currentTask!=null">{{tasks.currentTask.id}}-{{tasks.currentTask.taskName}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

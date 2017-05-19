@@ -17,10 +17,14 @@ suite("TaskController", () => {
       assert.equal(controller.message, "Initial task message");
     });
 
-    test("with initialized empty tasksCollection", () => {
+    test("with empty tasksCollection", () => {
       assert.isDefined(controller.tasks);
       assert.isNotNull(controller.tasks);
       assert.equal(controller.tasks.length, 0);
+    });
+
+    test("with null as currentTask", () => {
+      assert.isNull(controller.currentTask);
     });
   });
 
@@ -38,5 +42,21 @@ suite("TaskController", () => {
       assert.equal(controller.message, "Tasks are loaded");
       assert.equal(controller.tasks.length, 3);
     });
+  })
+
+  suite("selectTask", () => {
+    let controller: TaskController;
+    setup(() => {
+      controller = new TaskController();
+      controller.init();
+    });
+
+    test("sets the currentTaskProperty", () => {
+      controller.loadTasks();
+      controller.selectTask(1);
+
+      assert.isNotNull(controller.currentTask)
+      assert.equal(controller.currentTask && controller.currentTask.id, 1)
+    })
   })
 });
