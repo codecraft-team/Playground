@@ -1,0 +1,10 @@
+<div>
+  <div>some application</div>
+  <div>some bound state {{tasks.message}}</div>
+  <div><button @click="tasks.loadTasks()">Load Tasks</button></div>
+  <div style="display:table;">
+    <div v-for="task in tasks.tasks" style="display:table-row;">
+      <div style="display:table-cell;">{{task.id}}-{{task.taskName}}</div>
+    </div>
+  </div>
+</div>
