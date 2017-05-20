@@ -5,8 +5,8 @@
   <template v-if="taskData !== null">
     <p>{{taskData.id}}-{{taskData.taskName}}</p>
     <p>
-      <label for="taskName">Name:</label>
-      <input id="taskName" v-model="taskData.taskName" type="text" />
+      <label for="taskName">Name:</label><input id="taskName" v-model="taskData.taskName" type="text" /> <br/>
+      <textarea v-model="taskData.description" style="width:100%;" />
     </p>
 
     <p>

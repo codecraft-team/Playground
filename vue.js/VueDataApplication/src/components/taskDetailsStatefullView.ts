@@ -52,8 +52,8 @@ export class TaskDetailsStatefullViewComponent extends Vue {
     }
   }
 
-  private copy<T>(value: T): T {
-    return <T>JSON.parse(JSON.stringify(value));
+  private copy(value: Task): Task {
+    return new Task(value.id, value.taskName, value.description);
   }
 
 }

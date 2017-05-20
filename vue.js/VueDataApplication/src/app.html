@@ -5,13 +5,24 @@
     <button @click="tasks.loadTasks()">Load Tasks</button>
     <button @click="tasks.init()">Reset</button>
   </div>
-  <div style="display:table; width: 600px;">
+  <div style="display:table; width: 800px;">
     <div style="display:table-row">
       <div style="display:table-cell; width:30%;">
         <div style=" display:table; ">
           <div @click="tasks.selectTask(task.id)" v-for="task in tasks.tasks " style="display:table-row; ">
             <div style="display:table-cell; ">{{task.id}}-{{task.taskName}}</div>
           </div>
+        </div>
+        <div>
+          <div>
+            <input v-model="tasks.searchText" type="text" placeholder="search" />
+          </div>
+          <div style="display:table;">
+            <div @click="tasks.selectTask(task.id)" v-for="task in tasks.filteredTasks " style="display:table-row; ">
+              <div style="display:table-cell; ">{{task.id}}-{{task.taskName}}</div>
+            </div>
+          </div>
+
         </div>
       </div>
       <div style="display:table-cell">
