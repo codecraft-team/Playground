@@ -1,3 +1,4 @@
-export * from './task'
-export * from './taskService'
-export * from './taskController'
+export * from "./task";
+export * from "./taskCollection";
+export * from "./taskService";
+export * from "./taskController";

@@ -1,40 +1,40 @@
-import { Task, TaskCollection } from './task'
-import { TaskService } from './taskService'
+import { Task } from "./task";
+import { TaskCollection } from "./taskCollection";
+import { TaskService } from "./taskService";
 
 export class TaskController {
 
-  tasks: TaskCollection = new TaskCollection();
-  currentTask: Task | null = null;
-  searchText: string | null = null;
+  public tasks: TaskCollection = new TaskCollection();
+  public currentTask: Task | null = null;
+  public searchText: string | null = null;
+  public message: string;
 
   private taskService = new TaskService();
 
-  init(): void {
-    this.message = "Initial task message"
-    this.tasks.splice(0, this.tasks.length)
+  public init(): void {
+    this.message = "Initial task message";
+    this.tasks.splice(0, this.tasks.length);
     this.currentTask = null;
   }
-  selectTask(taskId: number) {
-    let task = this.tasks.find(task => task.id == taskId);
+  public selectTask(taskId: number) {
+    const task = this.tasks.find((t) => t.id === taskId);
     if (task) {
       this.currentTask = task;
     }
   }
 
-  message: string;
-
   get filteredTasks(): Task[] {
     let filtered = this.tasks;
     if (this.searchText) {
-      let regex = new RegExp(this.searchText);
-      filtered = this.tasks.filter(task => task.taskName && regex.test(task.taskName));
+      const regex = new RegExp(this.searchText);
+      filtered = this.tasks.filter((task) => task.taskName && regex.test(task.taskName));
     }
     return filtered;
   }
 
-  loadTasks(): void {
-    let index = this.tasks.length;
-    let tasks = this.taskService.loadTasks(index, 3);
+  public loadTasks(): void {
+    const index = this.tasks.length;
+    const tasks = this.taskService.loadTasks(index, 3);
     this.tasks.splice(this.tasks.length, 0, ...tasks);
     if (this.currentTask === null) {
       this.currentTask = this.tasks.slice(0, 1)[0];
@@ -42,9 +42,9 @@ export class TaskController {
     this.message = "Tasks are loaded";
   }
 
-  save(task: Task) {
+  public save(task: Task) {
     let currentTask: Task = new Task(task.id, task.taskName, task.description);
-    let index = this.tasks.findIndex((t => t.id == currentTask.id));
+    const index = this.tasks.findIndex(((t) => t.id === currentTask.id));
     if (index > -1) {
       this.tasks[index].taskName = currentTask.taskName;
       this.tasks[index].description = currentTask.description;
@@ -57,9 +57,9 @@ export class TaskController {
   }
 
   private newId(): number {
-    let clone = this.tasks.slice(0);
-    let sorted = clone.sort((a, b) => a.id! - b.id!);
-    let maxId: number = sorted.reverse()[0].id!
+    const clone = this.tasks.slice(0);
+    const sorted = clone.sort((a, b) => a.id! - b.id!);
+    const maxId: number = sorted.reverse()[0].id!;
     return 1 + maxId;
   }
 

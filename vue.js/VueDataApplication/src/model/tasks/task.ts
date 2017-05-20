@@ -4,8 +4,3 @@ export class Task {
     public taskName: string | null,
     public description: string | null = null) { }
 }
-
-export class TaskCollection extends Array<Task> {
-
-}
-
