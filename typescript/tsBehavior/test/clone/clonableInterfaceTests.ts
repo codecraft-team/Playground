@@ -53,7 +53,7 @@ suite("ClonableInterface", () => {
     assert.equal(clonedSut.sampleProperty, sut.sampleProperty);
     assert.isTrue(clonedSut.constructorCalled);
     assert.isDefined(clonedSut.reverseField);
-    // typescript allows access to set private fields inside the class 
+    // typescript allows access to set private fields inside the class
     assert.equal(clonedSut.privateFieldGetter, "cloned");
   });
 
