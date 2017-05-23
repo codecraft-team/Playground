@@ -32,10 +32,9 @@
           <p>Load tasks and then click on an task in the list</p>
           <p v-if="tasks.currentTask!=null">{{tasks.currentTask.id}}-{{tasks.currentTask.taskName}}</p>
           <hr/>
-          <div>
-            <task-details v-if="tasks.currentTask!=null" :task="tasks.currentTask"></task-details>
-            <task-statefull-details @task:save="task => tasks.save(task)" v-if="tasks.currentTask!=null" :task="tasks.currentTask"></task-statefull-details>
-          </div>
+          <task-details v-if="tasks.currentTask!=null" :task="tasks.currentTask"></task-details>
+          <hr/>
+          <task-statefull-details @task:save="task => tasks.save(task)" v-if="tasks.currentTask!=null" :task="tasks.currentTask"></task-statefull-details>
         </div>
       </div>
     </div>
