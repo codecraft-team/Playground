@@ -1,7 +1,7 @@
-import { PlainComponent } from './samples/plainComponent';
-import { VueClassComponent } from './samples/vueClassComponent';
-import { VuePropertyComponent } from './samples/vuePropertyDecoratedComponent';
-import { ValueFormattingComponent } from './samples/valueFormattingComponent';
+import { PlainComponent } from './samples/components/plainComponent';
+import { VueClassComponent } from './samples/components/vueClassComponent';
+import { VuePropertyComponent } from './samples/components/vuePropertyDecoratedComponent';
+import { ValueFormattingComponent } from './samples/filter/valueFormattingComponent';
 import { PluginUsageComponent } from './samples/plugin/pluginUsageComponent';
 
 export let samples = {

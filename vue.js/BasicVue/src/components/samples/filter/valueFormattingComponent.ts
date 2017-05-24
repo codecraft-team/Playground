@@ -1,6 +1,8 @@
 import * as Vue from 'vue';
 import Component from 'vue-class-component';
 
+import { SubComponentClass } from './subComponent';
+
 
 function capitalize(value: string) {
   if (!value) return "";
@@ -14,18 +16,7 @@ function reverse(value: string) {
 // register a filter to all components used with this Vue-Instance
 Vue.filter("reverse", reverse);
 
-/** SUB Component */
-@Component({
-  template: `<div>
-  <p>Capitalize filter in subcomponent is not available:<br/>
-  {{lowerSubValue}} => <mark>{{lowerSubValue | capitalize}}</mark></p>
-  <p>Reverse filter which is registered using Vue.filter is available in all components:<br/>
-  {{lowerSubValue}} => <mark>{{lowerSubValue | reverse}}</mark></p>
-  </div>`
-})
-class SubComponentClass extends Vue {
-  lowerSubValue: string = "lowerValueInSubComponent"
-}
+
 
 /** MAIN Sample Component */
 @Component({

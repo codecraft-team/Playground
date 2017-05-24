@@ -9,10 +9,9 @@ Vue.use(filters);
 
 @Component({
   template: `<div>
-  Template Value: {{templateValue}} => {{templateValue | capitalize}}
+  Template Value: {{templateValue}} => <mark>{{templateValue | capitalize}}</mark>
   </div>`
 })
 export class PluginUsageComponent extends Vue {
   templateValue: string = "templateValue"
-
 }
