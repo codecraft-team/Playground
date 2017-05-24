@@ -5,6 +5,7 @@ import { filterPlugin } from './filters';
 
 let filters = new filterPlugin()
 
+/** register the plugin in the glbal Vue which is available in all components */
 Vue.use(filters);
 
 @Component({
