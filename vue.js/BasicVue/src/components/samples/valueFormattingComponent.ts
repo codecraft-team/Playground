@@ -11,8 +11,10 @@ function reverse(value: string) {
   return value.split("").reverse().join("");
 }
 
+// register a filter to all components used with this Vue-Instance
 Vue.filter("reverse", reverse);
 
+/** SUB Component */
 @Component({
   template: `<div>
   <p>Capitalize filter in subcomponent is not available:<br/>
@@ -25,6 +27,7 @@ class SubComponentClass extends Vue {
   lowerSubValue: string = "lowerValueInSubComponent"
 }
 
+/** MAIN Sample Component */
 @Component({
   template: `<div>
     <p>Captalize filter: {{lowerValue}} =><mark>{{lowerValue | capitalize}}</mark><br/>
@@ -32,7 +35,7 @@ class SubComponentClass extends Vue {
     <p><my-subcomponent></my-subcomponent></p>
 </div>`,
   filters: {
-    capitalize: capitalize
+    'capitalize': capitalize
   },
   components: {
     'my-subcomponent': SubComponentClass
@@ -40,5 +43,6 @@ class SubComponentClass extends Vue {
 })
 export class ValueFormattingComponent extends Vue {
   lowerValue: string = "smallValue";
+
 }
 
