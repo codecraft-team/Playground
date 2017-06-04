@@ -4,7 +4,9 @@
   "description": "Some evaluations about typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run lint & tsc",
+    "test": "mocha",
+    "lint": "tslint -c tslint.json test/**/*.ts"
   },
   "repository": {
     "type": "git",
