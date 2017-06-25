@@ -11,4 +11,4 @@ Configure console logger settings (appsettings file): [ConsoleLoggerTests](Tests
 
 Scenario: Extended logging using SeriLog  
 Configure SeriLog (appsettings file)  
-Use SeriLog to trace to DebugView using only .NET Core.
+Use SeriLog to trace to DebugView using only .NET Core [SeriLoggerTests](Tests/SeriLoggerTests.cs)

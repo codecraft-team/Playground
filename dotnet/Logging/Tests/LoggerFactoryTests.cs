@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {
   [TestClass]
-  public class LoggingFactoryTests {
+  public class LoggerFactoryTests {
     [TestMethod]
     public void TestCreateLoggerFactory() {
       using (ILoggerFactory factory = new LoggerFactory()) {
@@ -21,7 +21,7 @@ namespace Tests {
       using (ILoggerFactory factory = new LoggerFactory()) {
         factory.AddProvider(new ConsoleLoggerProvider((message, logLevel) => logLevel < LogLevel.None, true));
 
-        ILogger logger = factory.CreateLogger<LoggingFactoryTests>();
+        ILogger logger = factory.CreateLogger<LoggerFactoryTests>();
         logger.LogDebug("This message will be logged");
       }
     }
@@ -31,7 +31,7 @@ namespace Tests {
       using (ILoggerFactory factory = new LoggerFactory()) {
         factory.AddConsole((message, logLevel) => logLevel == LogLevel.Information, true);
 
-        ILogger logger = factory.CreateLogger<LoggingFactoryTests>();
+        ILogger logger = factory.CreateLogger<LoggerFactoryTests>();
         logger.LogDebug("This message will not be logged");
       }
     }

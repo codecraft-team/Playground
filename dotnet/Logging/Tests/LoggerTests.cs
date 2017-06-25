@@ -24,7 +24,7 @@ namespace Tests {
       using(ILoggerFactory factory = new LoggerFactory()) {
         factory.AddConsole();
 
-        ILogger logger = factory.CreateLogger<LoggingFactoryTests>();
+        ILogger logger = factory.CreateLogger<LoggerTests>();
         logger.LogInformation("This log is written in {0}", nameof(TestLog));
         logger.LogError(2, exception, "Exception logging");
       }
@@ -35,7 +35,7 @@ namespace Tests {
       using (ILoggerFactory factory = new LoggerFactory()) {
         factory.AddConsole(true);
 
-        ILogger logger = factory.CreateLogger<LoggingFactoryTests>();
+        ILogger logger = factory.CreateLogger<LoggerTests>();
 
         logger.LogInformation("Before scope");
 
