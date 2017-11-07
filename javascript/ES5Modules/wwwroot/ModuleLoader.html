@@ -1,0 +1,68 @@
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>ES5 Modules</title>
+
+        <script>       
+
+            function ModuleLoader() { }
+
+            ModuleLoader.prototype = {
+                load: function load(path) {
+                    var self = this;
+
+                    return {
+                        then: function then(callback) {
+                            self.requestModule(path, function () {
+                                if (this.readyState !== 4) return;
+                                if (this.status !== 200) return;
+
+                                var source = this.responseText;
+
+                                exports = self.loadIntoScope(source);
+                                callback(exports);
+                            });
+                        }
+                    };
+                },
+
+                loadIntoScope: function loadIntoScope(source) {
+                    var code = new Function("exports", source);
+
+                    var exports = {};
+
+                    code(exports);
+
+                    return exports;
+                },
+
+                requestModule: function requestModule(path, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', path, true);
+                    xhr.onreadystatechange = callback;
+                    xhr.send();
+                }
+            };
+
+            var moduleLoader = new ModuleLoader();
+            moduleLoader.load('js/version1.js').then(function (module) {
+                console.log(module.Versioning.No);
+            });
+            moduleLoader.load('js/version2.js').then(function (module) {
+                console.log(module.Versioning.No);
+            });            
+            moduleLoader.load('js/Calculator.js').then(function (module) {
+                var calculator = new module.myNamespace.Calculator();
+                console.log(calculator.add(1, 2));
+            });
+        </script>
+    </head>
+
+    <body>
+        <h1>ES5 Modules</h1>
+        <p>Demonstrates basic module implementation. Goal is to not pollute global scope.</p>
+    </body>
+
+    </html>

@@ -1,0 +1,58 @@
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>ES5 Modules</title>
+
+        <script>       
+            requestModule('js/version1.js', onModuleLoaded);
+            requestModule('js/version2.js', onModuleLoaded);
+            requestModule('js/Calculator.js', onCalculatorLoaded);
+
+            function onModuleLoaded() {
+                if (this.readyState !== 4) return;
+                if (this.status !== 200) return;
+
+                var source = this.responseText;
+
+                var exports = loadIntoScope(source);
+                console.log(exports.Versioning.No);
+            };
+
+            function onCalculatorLoaded() {
+                if (this.readyState !== 4) return;
+                if (this.status !== 200) return;
+
+                var source = this.responseText;
+
+                var exports = loadIntoScope(source);
+                var calculator = new exports.myNamespace.Calculator();
+                console.log(calculator.add(1, 2));
+            };
+
+            function loadIntoScope(source) {
+                var code = new Function("exports", source);
+
+                var exports = {};
+
+                code(exports);
+
+                return exports;
+            }
+
+            function requestModule(path, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', path, true);
+                xhr.onreadystatechange = callback;
+                xhr.send();
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>ES5 Modules</h1>
+        <p>Demonstrates basic module implementation. Goal is to not pollute global scope.</p>
+    </body>
+
+    </html>
