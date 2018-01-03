@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>File Upload</title>
+  <style>
+    #dropzone {
+      border: 3px dashed #ddd;
+      float: left;
+      height: 40px;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+      width: 150px;
+    }
+
+      #dropzone + div {
+        padding: 10px;
+      }
+
+    .over {
+      border: 3px dashed #000
+    }
+
+    #downloads {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dropzone">Drop here</div>
+
+  <div>
+    <div>
+      <input name="file" type="file" id="files" multiple />
+      <input name="upload" value="Upload" id="upload" type="button" />
+      <input name="abort" value="Abort" id="abort" type="button" />
+    </div>
+
+    <div>
+      <progress id="progress" value="0" max="100" style="margin-top: 10px"></progress>
+      <span id="percent"></span>
+    </div>
+
+    <div>
+      <span id="bandwidth">0</span><span>&nbsp;MB/second.</span>
+    </div>
+  </div>
+
+  <div id="downloads"></div>
+
+  <script src="download.js"></script>
+  <script src="upload.js"></script>
+  <script src="dragndrop.js"></script>
+</body>
+
+</html>
