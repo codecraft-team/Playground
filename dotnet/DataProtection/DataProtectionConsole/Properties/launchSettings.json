@@ -2,7 +2,7 @@
   "profiles": {
     "DataProtectionConsole": {
       "commandName": "Project",
-      "commandLineArgs": "codecraftteam.pfx abc123"
+      "commandLineArgs": "-i codecraftteam.pfx abc123"
     }
   }
 }

@@ -1,14 +1,19 @@
 ﻿# Demo
-Demonstrates how to use an X509Certificate2 with the DataProtection Api.
-
+Demonstrates how to use an X509Certificate2 with the DataProtection Api.  
+To install the certificate in the certificate store use:
 ```PowerShell
-PS:\>DataProtectionConsole codecrafteamdev.pfx abc123
+PS:\>DataProtectionConsole -i codecraftteam.pfx abc123
+```
+
+If the certificate is already in the certificate store use:
+```PowerShell
+PS:\>DataProtectionConsole
 ```
 
 To create a custom self-signed certificate a PowerShell cmdlet can be used.
 Replace password and dnsname as needed.
 ```PowerShell
-PS:\>$securedPassword = ConvertTo-SecureString -String "abc123" -Force -AsPlainText
+PS:\> $securedPassword = ConvertTo-SecureString -String "abc123" -Force -AsPlainText
 PS:\> New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname codecraftteam
 PS:\> Export-PfxCertificate -cert cert:\localMachine\my\thumbprint -FilePath e:\cert.pfx -Password $securedPassword
 
