@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  readdatafromrfreceiver:
+    image: readdatafromrfreceiver
+    build:
+      context: .
+      dockerfile: ReadDataFromRFReceiver/Dockerfile
