@@ -1,0 +1,12 @@
+{
+  "author": "CodeCraft.Team",
+  "classifications": [ "Console" ],
+  "identity": "CodeCraft.Team Core Console",
+  "name": "CodeCraft.Team Core Console",
+  "shortName": "coreconsole",
+  "tags": {
+    "language": "C#"
+  },
+  "sourceName": "CoreConsole",
+  "preferNameDirectory": true
+}

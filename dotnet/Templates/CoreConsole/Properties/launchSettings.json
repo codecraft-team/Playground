@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "CoreConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "-o 2 /setting 3",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "development"
+      }
+    }
+  }
+}
