@@ -58,3 +58,8 @@ dotnet run
 3. Open a browser and navigate to: http://localhost/apps/app1
 the response "app1" shoul be appear
 
+
+## More infos
+The sample shows only the inbound rule, also the outboud should be rewritten.
+
+For more details see the Microsoft documentation: [https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/reverse-proxy-with-url-rewrite-v2-and-application-request-routing](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/reverse-proxy-with-url-rewrite-v2-and-application-request-routing)
