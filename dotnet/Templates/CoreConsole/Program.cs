@@ -18,7 +18,10 @@ namespace CoreConsole {
 
       Startup startup = new Startup(environment, args);
       startup.ConfigureServices(services);
-      return startup.Run(services.BuildServiceProvider());
+
+      using (ServiceProvider buildServiceProvider = services.BuildServiceProvider()) {
+        return startup.Run(buildServiceProvider);
+      }
     }
   }
 }
