@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProtectionFileCertConsole", "DataProtectionFileCertConsole\DataProtectionFileCertConsole.csproj", "{46942362-414A-41B9-99B8-4CCF81C81D18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,18 @@ Global
 		{347EC916-482A-4119-B0FA-9233ECE7D747}.Release|x64.Build.0 = Release|Any CPU
 		{347EC916-482A-4119-B0FA-9233ECE7D747}.Release|x86.ActiveCfg = Release|Any CPU
 		{347EC916-482A-4119-B0FA-9233ECE7D747}.Release|x86.Build.0 = Release|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Debug|x64.Build.0 = Debug|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Debug|x86.Build.0 = Debug|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Release|x64.ActiveCfg = Release|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Release|x64.Build.0 = Release|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Release|x86.ActiveCfg = Release|Any CPU
+		{46942362-414A-41B9-99B8-4CCF81C81D18}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

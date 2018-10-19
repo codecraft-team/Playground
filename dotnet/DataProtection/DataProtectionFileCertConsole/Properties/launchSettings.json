@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DataProtectionFileCertConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "-i codecraftteam.pfx abc123"
+    }
+  }
+}
